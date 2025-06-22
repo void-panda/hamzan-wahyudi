@@ -33,22 +33,22 @@ export default function MobileDock({ onGitHubClick, onNotesClick, onResumeClick,
             <BsGithub size={55} className='text-white' />
           </div>
         </button>
-        <button
+        {/* <button
           onClick={onNotesClick}
           className='flex flex-col items-center cursor-pointer'
         >
           <div className='w-18 h-18 bg-gradient-to-t from-yellow-600 to-yellow-400 rounded-2xl flex items-center justify-center'>
             <BsStickyFill size={55} className='text-white' />
           </div>
-        </button>
-        <button
+        </button> */}
+        {/* <button
           onClick={onResumeClick}
           className='flex flex-col items-center cursor-pointer'
         >
           <div className='w-18 h-18 bg-gradient-to-t from-red-600 to-red-400 rounded-2xl flex items-center justify-center'>
             <BsFilePdf size={55} className='text-white' />
           </div>
-        </button>
+        </button> */}
         <button
           onClick={onTerminalClick}
           className='flex flex-col items-center cursor-pointer'

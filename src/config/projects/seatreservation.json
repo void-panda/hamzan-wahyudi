@@ -2,7 +2,7 @@
     "id": "seatreservation",
     "title": "Seat Reservation",
     "description": "A comprehensive seat reservation system built with Java and JavaFX",
-    "repoUrl": "https://github.com/aabdoo23/seatReservation",
+    "repoUrl": "https://github.com/void-panda/seatReservation",
     "techStack": [
         "Java",
         "JavaFX",

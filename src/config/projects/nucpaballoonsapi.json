@@ -2,7 +2,7 @@
     "id": "nucpaballoonsapi",
     "title": "Nucpa Balloons API",
     "description": "A comprehensive API for the Nucpa Balloons project",
-    "repoUrl": "https://github.com/aabdoo23/NucpaBalloonsApi",
+    "repoUrl": "https://github.com/void-panda/NucpaBalloonsApi",
     "liveUrl": "https://nucpa-balloons.runasp.net/swagger/index.html",
     "techStack": [
         "C#",

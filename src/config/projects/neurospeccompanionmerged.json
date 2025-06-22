@@ -2,7 +2,7 @@
     "id": "neurospeccompanionmerged",
     "title": "NeuroSpecCompanion - A Companion for Neurologically Impaired Patients",
     "description": "The system consists of two integrated components: a patient-facing mobile application and a doctor-facing management system. The patient application features four distinct games aimed at measuring various symptoms, while the doctor’s interface facilitates data analysis and patient management. The system adheres to FHIR standards for interoperability and leverages advanced technologies such as machine learning and natural language processing to enhance its functionality.",
-    "repoUrl": "https://github.com/aabdoo23/NeuroSpecCompanionMerged",
+    "repoUrl": "https://github.com/void-panda/NeuroSpecCompanionMerged",
     "techStack": [
         "ASP.NET Core",
         "C#",

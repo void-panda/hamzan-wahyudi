@@ -135,7 +135,7 @@ const DesktopDock = ({ onTerminalClick, onNotesClick, onGitHubClick, activeApps 
             </button>
 
             {/* Notes */}
-            <button
+            {/* <button
               onClick={onNotesClick}
               onMouseEnter={() => setHoveredIcon('notes')}
               onMouseLeave={() => setHoveredIcon(null)}
@@ -145,10 +145,10 @@ const DesktopDock = ({ onTerminalClick, onNotesClick, onGitHubClick, activeApps 
                 <BsStickyFill size={35} className='text-white' />
               </div>
               {hoveredIcon === 'notes' && <Tooltip text='Resume Notes' />}
-            </button>
+            </button> */}
 
             {/* Resume */}
-            <button
+            {/* <button
               onClick={handleResumeClick}
               onMouseEnter={() => setHoveredIcon('resume')}
               onMouseLeave={() => setHoveredIcon(null)}
@@ -158,7 +158,7 @@ const DesktopDock = ({ onTerminalClick, onNotesClick, onGitHubClick, activeApps 
                 <BsFilePdf size={35} className='text-white' />
               </div>
               {hoveredIcon === 'resume' && <Tooltip text='View Resume' />}
-            </button>
+            </button> */}
 
             {/* Calendar */}
             <button

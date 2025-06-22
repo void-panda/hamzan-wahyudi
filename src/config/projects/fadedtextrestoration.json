@@ -2,8 +2,8 @@
     "id": "fadedtextrestoration",
     "title": "Faded Text Restoration",
     "description": "A project that uses image processing and OCR to restore faded English text from historical documents. It applies multiple enhancement steps, uses Tesseract OCR, and refines results via Gemini LLM.",
-    "repoUrl": "https://github.com/aabdoo23/fadedTextRestoration",
-    "liveUrl": "https://huggingface.co/spaces/aabdoo234/fadedTextRestoration",
+    "repoUrl": "https://github.com/void-panda/fadedTextRestoration",
+    "liveUrl": "https://huggingface.co/spaces/void-panda4/fadedTextRestoration",
     "techStack": [
         "Python",
         "OpenCV",

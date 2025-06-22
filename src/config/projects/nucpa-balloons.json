@@ -2,7 +2,7 @@
     "id": "nucpa-balloons",
     "title": "Nucpa Balloons",
     "description": "A comprehensive web application for managing balloon reservations and requests at Nucpa, fit for ACPC style contests",
-    "repoUrl": "https://github.com/aabdoo23/nucpa-balloons",
+    "repoUrl": "https://github.com/void-panda/nucpa-balloons",
     "liveUrl": "https://nucpa-balloons.vercel.app",
     "techStack": [
         "React",

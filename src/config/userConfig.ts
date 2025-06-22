@@ -9,25 +9,25 @@ import portfolio from './projects/portfolio.json';
 import foodies from './projects/foodies.json';
 export const userConfig = {
     // Personal Information
-    name: 'Abdelrahman Saleh',
+    name: 'Hamzan Wahyudi',
     role: 'Software Developer - Backend Developer',
     location: 'Giza, Egypt',
-    email: 'aabdoo2304@gmail.com',
-    website: 'aabdoo23',
+    email: 'hamzankechil@gmail.com',
+    website: 'void-panda',
     roleFocus: 'Backend Development using .NET, C#, Entity Framework, SQL Server, and Bootstrap. Can also work with Angular, React, and Node.js.',
     age: 23,    
 
     // Social Links
     social: {
-        github: 'https://github.com/aabdoo23',
-        linkedin: 'https://www.linkedin.com/in/aabdoo23/', // Add your LinkedIn URL
+        github: 'https://github.com/void-panda',
+        linkedin: 'https://www.linkedin.com/in/void-panda/', // Add your LinkedIn URL
     },
 
     // Contact Information
     contact: {
-        email: 'aabdoo2304@gmail.com',
+        email: 'hamzankechil@gmail.com',
         phone: '+201007952039', // Add your phone number
-        calendly: 'https://calendly.com/aabdoo2304', // Add your Calendly URL
+        calendly: 'https://calendly.com/hamzankechil', // Add your Calendly URL
     },
 
     // Spotify Configuration
@@ -527,7 +527,7 @@ export const userConfig = {
 
     // SEO Configuration
     seo: {
-        title: 'Abdelrahman Saleh - Software Developer',
+        title: 'Hamzan Wahyudi - Software Developer',
         description: 'Software Developer based in Egypt specializing in React, Node.js, and modern web technologies',
         keywords: ['Software Developer', 'React', 'Node.js', 'Web Development', 'Egypt'],
     },

@@ -2,7 +2,7 @@
     "id": "clinicalmain",
     "title": "Recover360 - Clinic Management System",
     "description": "Recover360 is an advanced desktop application developed in C# using the Windows Presentation Foundation (WPF) framework. It is designed to streamline and enhance the operations of physiotherapy clinics, providing a comprehensive solution for efficient patient management, scheduling, and clinic administration. Leveraging Visual Studio and essential libraries compatible with Windows operating systems, Recover360 offers a user-friendly interface and key features for effective healthcare management.",
-    "repoUrl": "https://github.com/aabdoo23/clinicalmain",
+    "repoUrl": "https://github.com/void-panda/clinicalmain",
     "techStack": [
         "ASP.NET Core",
         "C#",

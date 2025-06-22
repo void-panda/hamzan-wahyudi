@@ -2,7 +2,7 @@
     "id": "foodies",
     "title": "Foodies",
     "description": "A web application for managing a restaurant's menu, orders, and customer information.",
-    "repoUrl": "https://github.com/aabdoo23/foodies",
+    "repoUrl": "https://github.com/void-panda/foodies",
     "techStack": [
         "C#",
         "ASP.NET Core",

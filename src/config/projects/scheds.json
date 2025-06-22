@@ -2,7 +2,7 @@
     "id": "scheds",
     "title": "Scheds - A Course Schedule Generator",
     "description": "My proudest project yet, a comprehensive course schedule generator application built with ASP.NET Core MVC",
-    "repoUrl": "https://github.com/aabdoo23/Scheds",
+    "repoUrl": "https://github.com/void-panda/Scheds",
     "liveUrl": "https://scheds.runasp.net",
     "techStack": [
         "ASP.NET Core",
