@@ -7,6 +7,6 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://hamzan-wahyudi.my.id",
+  site: "https://zannns.vercel.app",
   integrations: [mdx(), sitemap(), solidJs(), tailwind({ applyBaseStyles: false }), icon()],
 })

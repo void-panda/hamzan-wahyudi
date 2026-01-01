@@ -4,7 +4,7 @@ const robotsTxt = `
 User-agent: *
 Allow: /
 
-Sitemap: ${new URL("sitemap-index.xml", import.meta.env.SITE).href}
+Sitemap: https://zannns.vercel.app/sitemap.xml
 `.trim()
 
 export const GET: APIRoute = () => {
