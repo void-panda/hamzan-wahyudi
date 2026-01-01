@@ -8,7 +8,7 @@ import GithubContribution from "@/components/GithubContribution.astro";
 import GithubStatsDetail from "@components/GithubStatsDetail.astro";
 
 const posts = (await getCollection("blog"))
-  .filter((post: { data: { draft: any } }) => !post.data.draft)
+  .filter((post) => !post.data.draft)
   .sort(
     (
       a: { data: { date: { getTime: () => number } } },
@@ -18,7 +18,7 @@ const posts = (await getCollection("blog"))
   .slice(0, 3);
 
 const projects = (await getCollection("projects"))
-  .filter((project: { data: { draft: any } }) => !project.data.draft)
+  .filter((project) => !project.data.draft)
   .sort(
     (
       a: { data: { date: { getTime: () => number } } },
@@ -254,7 +254,7 @@ const projects = (await getCollection("projects"))
           </div>
           <ul class="space-y-4">
             {
-              projects.map((project: unknown) => (
+              projects.map((project: any) => (
                 <li>
                   <ArrowCard entry={project} />
                 </li>
@@ -284,7 +284,7 @@ const projects = (await getCollection("projects"))
           </div>
           <ul class="space-y-4">
             {
-              posts.map((post: unknown) => (
+              posts.map((post: any) => (
                 <li>
                   <ArrowCard entry={post} />
                 </li>

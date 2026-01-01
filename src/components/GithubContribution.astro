@@ -162,8 +162,6 @@ const { username } = Astro.props;
 
             graphContainer.innerHTML = "";
 
-            const isDark = document.documentElement.classList.contains("dark");
-
             drawContributionGraph({
                 data: formattedData,
                 ssr: false,
