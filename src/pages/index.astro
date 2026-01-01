@@ -104,10 +104,10 @@ const projects = (await getCollection("projects"))
           <h2 class="font-black text-2xl dark:text-white text-black text-center">
             My Skills
           </h2>
-          <div class="space-y-3" id="languages">
-            <h4 class="font-bold">Languanges</h4>
+          <div class="space-y-3" id="expert">
+            <h4 class="font-bold">Expert</h4>
             <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.languages.map(item => (
+              {stack.expert.map(item => (
                 <StackCard 
                   text={item.text}
                   icon={item.icon}
@@ -117,23 +117,10 @@ const projects = (await getCollection("projects"))
             </div>
           </div>
 
-          <div class="space-y-3" id="libraries">
-            <h4 class="font-bold">Libraries</h4>
+          <div class="space-y-3" id="intermediate">
+            <h4 class="font-bold">Intermediate</h4>
             <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.libraries.map(item => (
-                <StackCard 
-                  text={item.text}
-                  icon={item.icon}
-                  href={item.href}
-                />
-              ))}
-            </div>
-          </div>
-          
-          <div class="space-y-3" id="frameworks">
-            <h4 class="font-bold">Frameworks</h4>
-            <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.frameworks.map(item => (
+              {stack.intermediate.map(item => (
                 <StackCard 
                   text={item.text}
                   icon={item.icon}
@@ -143,36 +130,10 @@ const projects = (await getCollection("projects"))
             </div>
           </div>
 
-          <div class="space-y-3" id="databases">
-            <h4 class="font-bold">Databases</h4>
+          <div class="space-y-3" id="beginner">
+            <h4 class="font-bold">Beginner</h4>
             <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.databases.map(item => (
-                <StackCard 
-                  text={item.text}
-                  icon={item.icon}
-                  href={item.href}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div class="space-y-3" id="tools">
-            <h4 class="font-bold">Tools</h4>
-            <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.tools.map(item => (
-                <StackCard 
-                  text={item.text}
-                  icon={item.icon}
-                  href={item.href}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div class="space-y-3" id="os">
-            <h4 class="font-bold">Operating Systems</h4>
-            <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.os.map(item => (
+              {stack.beginner.map(item => (
                 <StackCard 
                   text={item.text}
                   icon={item.icon}

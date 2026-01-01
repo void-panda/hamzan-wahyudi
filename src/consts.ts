@@ -81,29 +81,32 @@ export const SOCIALS: Socials = [
 
 // SKILLS
 export const stack = {
-  languages: [
+  expert: [
+    {
+      text: "PHP",
+      icon: "simple-icons:php",
+      href: "https://www.php.net"
+    },
+    {
+      text: "Laravel",
+      icon: "simple-icons:laravel",
+      href: "https://laravel.com"
+    },
+    {
+      text: "MySQL",
+      icon: "simple-icons:mysql",
+      href: "https://www.mysql.com"
+    },
     {
       text: "Javascript",
       icon: "simple-icons:javascript",
       href: "https://www.javascript.com"
     },
     {
-      text: "Typescript",
-      icon: "simple-icons:typescript",
-      href: "https://www.typescriptlang.org"
+      text: "NextJS",
+      icon: "simple-icons:nextdotjs",
+      href: "https://nextjs.org"
     },
-    {
-      text: "Golang",
-      icon: "simple-icons:go",
-      href: "https://golang.org"
-    },
-    {
-      text: "PHP",
-      icon: "simple-icons:php",
-      href: "https://www.php.net"
-    },
-  ],
-  libraries: [
     {
       text: "ReactJS",
       icon: "simple-icons:react",
@@ -115,21 +118,21 @@ export const stack = {
       href: "https://vuejs.org"
     },
     {
-      text: "Tailwind",
-      icon: "simple-icons:tailwindcss",
-      href: "https://tailwindcss.com"
-    },
-    {
       text: "Bootstrap",
       icon: "simple-icons:bootstrap",
       href: "https://getbootstrap.com"
     }
   ],
-  frameworks: [
+  intermediate: [
     {
-      text: "Laravel",
-      icon: "simple-icons:laravel",
-      href: "https://laravel.com"
+      text: "Typescript",
+      icon: "simple-icons:typescript",
+      href: "https://www.typescriptlang.org"
+    },
+    {
+      text: "Tailwind",
+      icon: "simple-icons:tailwindcss",
+      href: "https://tailwindcss.com"
     },
     {
       text: "Flutter",
@@ -147,21 +150,9 @@ export const stack = {
       href: "https://svelte.dev"
     },
     {
-      text: "NextJS",
-      icon: "simple-icons:nextdotjs",
-      href: "https://nextjs.org"
-    },
-    {
       text: "NuxtJS",
       icon: "simple-icons:nuxtdotjs",
       href: "https://nuxtjs.org"
-    },
-  ],
-  databases: [
-    {
-      text: "MySQL",
-      icon: "simple-icons:mysql",
-      href: "https://www.mysql.com"
     },
     {
       text: "SQLite",
@@ -172,18 +163,6 @@ export const stack = {
       text: "PostgreSQL",
       icon: "simple-icons:postgresql",
       href: "https://www.postgresql.org"
-    }
-  ],
-  tools: [
-    {
-      text: "Nginx",
-      icon: "simple-icons:nginx",
-      href: "https://nginx.org"
-    },
-    {
-      text: "Redis",
-      icon: "simple-icons:redis",
-      href: "https://redis.io"
     },
     {
       text: "Docker",
@@ -204,9 +183,7 @@ export const stack = {
       text: "Postman",
       icon: "simple-icons:postman",
       href: "https://www.postman.com"
-    }
-  ],
-  os: [
+    },
     {
       text: "Linux",
       icon: "simple-icons:linux",
@@ -217,6 +194,22 @@ export const stack = {
       icon: "simple-icons:windows",
       href: "https://www.microsoft.com/en-us/windows"
     }
+  ],
+  beginner: [
+    {
+      text: "Redis",
+      icon: "simple-icons:redis",
+      href: "https://redis.io"
+    },
+    {
+      text: "Golang",
+      icon: "simple-icons:go",
+      href: "https://golang.org"
+    },
+    {
+      text: "Nginx",
+      icon: "simple-icons:nginx",
+      href: "https://nginx.org"
+    }
   ]
 }
-
