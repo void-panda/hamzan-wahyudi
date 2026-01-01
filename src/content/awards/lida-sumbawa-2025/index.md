@@ -2,7 +2,7 @@
 title: "Lomba Inovasi Daerah (LIDA) Sumbawa 2025"
 issuer: "Lida Sumbawa"
 date: "2025"
-image: "./certificate_1.png"
+image: "./lida-sumbawa-2025.jpeg"
 order: 1
 ---
 
