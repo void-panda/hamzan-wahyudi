@@ -33,45 +33,45 @@ export const SEARCH: Page = {
 
 // Links
 export const LINKS: Links = [
-  { 
-    TEXT: "Home", 
-    HREF: "/", 
+  {
+    TEXT: "Home",
+    HREF: "/",
   },
-  { 
-    TEXT: "Work", 
-    HREF: "/work", 
+  {
+    TEXT: "Work",
+    HREF: "/work",
   },
-  { 
-    TEXT: "Blog", 
-    HREF: "/blog", 
+  {
+    TEXT: "Blog",
+    HREF: "/blog",
   },
-  { 
-    TEXT: "Projects", 
-    HREF: "/projects", 
+  {
+    TEXT: "Projects",
+    HREF: "/projects",
   },
 ]
 
 // Socials
 export const SOCIALS: Socials = [
-  { 
+  {
     NAME: "Email",
-    ICON: "email", 
+    ICON: "email",
     TEXT: "hamzankechil@gmail.com",
     HREF: "mailto:hamzankechil@gmail.com",
   },
-  { 
+  {
     NAME: "Github",
     ICON: "github",
     TEXT: "void-panda",
     HREF: "https://github.com/void-panda"
   },
-  { 
+  {
     NAME: "LinkedIn",
     ICON: "linkedin",
     TEXT: "hamzan-wahyudi",
     HREF: "https://www.linkedin.com/in/hamzan-wahyudi/",
   },
-  { 
+  {
     NAME: "Twitter",
     ICON: "twitter-x",
     TEXT: "hamzandev",
@@ -82,140 +82,140 @@ export const SOCIALS: Socials = [
 // SKILLS
 export const stack = {
   languages: [
-    { 
-      text: "Javascript", 
-      icon: "javascript", 
-      href: "https://www.javascript.com" 
+    {
+      text: "Javascript",
+      icon: "simple-icons:javascript",
+      href: "https://www.javascript.com"
     },
-    { 
-      text: "Typescript", 
-      icon: "typescript", 
-      href: "https://www.typescriptlang.org" 
+    {
+      text: "Typescript",
+      icon: "simple-icons:typescript",
+      href: "https://www.typescriptlang.org"
     },
-    { 
-      text: "Golang", 
-      icon: "go", 
-      href: "https://golang.org" 
+    {
+      text: "Golang",
+      icon: "simple-icons:go",
+      href: "https://golang.org"
     },
-    { 
-      text: "PHP", 
-      icon: "php", 
-      href: "https://www.php.net" 
+    {
+      text: "PHP",
+      icon: "simple-icons:php",
+      href: "https://www.php.net"
     },
   ],
   libraries: [
-    { 
-      text: "ReactJS", 
-      icon: "react", 
-      href: "https://reactjs.org" 
+    {
+      text: "ReactJS",
+      icon: "simple-icons:react",
+      href: "https://reactjs.org"
     },
-    { 
-      text: "VueJS", 
-      icon: "vue", 
-      href: "https://vuejs.org" 
+    {
+      text: "VueJS",
+      icon: "simple-icons:vuedotjs",
+      href: "https://vuejs.org"
     },
-    { 
-      text: "Tailwind", 
-      icon: "tailwind", 
-      href: "https://tailwindcss.com" 
+    {
+      text: "Tailwind",
+      icon: "simple-icons:tailwindcss",
+      href: "https://tailwindcss.com"
     },
-    { 
-      text: "Bootstrap", 
-      icon: "bootstrap", 
-      href: "https://getbootstrap.com" 
+    {
+      text: "Bootstrap",
+      icon: "simple-icons:bootstrap",
+      href: "https://getbootstrap.com"
     }
   ],
   frameworks: [
-    { 
-      text: "Laravel", 
-      icon: "laravel", 
-      href: "https://laravel.com" 
+    {
+      text: "Laravel",
+      icon: "simple-icons:laravel",
+      href: "https://laravel.com"
     },
-    { 
-      text: "Flutter", 
-      icon: "flutter", 
-      href: "https://flutter.dev" 
+    {
+      text: "Flutter",
+      icon: "simple-icons:flutter",
+      href: "https://flutter.dev"
     },
-    { 
-      text: "Astro", 
-      icon: "astro", 
-      href: "https://astro.build" 
+    {
+      text: "Astro",
+      icon: "simple-icons:astro",
+      href: "https://astro.build"
     },
-    { 
-      text: "Svelte", 
-      icon: "svelte", 
-      href: "https://svelte.dev" 
+    {
+      text: "Svelte",
+      icon: "simple-icons:svelte",
+      href: "https://svelte.dev"
     },
-    { 
-      text: "NextJS", 
-      icon: "nextjs", 
-      href: "https://nextjs.org" 
+    {
+      text: "NextJS",
+      icon: "simple-icons:nextdotjs",
+      href: "https://nextjs.org"
     },
-    { 
-      text: "NuxtJS", 
-      icon: "nuxtjs", 
-      href: "https://nuxtjs.org" 
+    {
+      text: "NuxtJS",
+      icon: "simple-icons:nuxtdotjs",
+      href: "https://nuxtjs.org"
     },
   ],
   databases: [
-    { 
-      text: "MySQL", 
-      icon: "mysql", 
-      href: "https://www.mysql.com" 
+    {
+      text: "MySQL",
+      icon: "simple-icons:mysql",
+      href: "https://www.mysql.com"
     },
-    { 
-      text: "SQLite", 
-      icon: "sqlite", 
-      href: "https://www.sqlite.org" 
+    {
+      text: "SQLite",
+      icon: "simple-icons:sqlite",
+      href: "https://www.sqlite.org"
     },
-    { 
-      text: "PostgreSQL", 
-      icon: "postgres", 
-      href: "https://www.postgresql.org" 
+    {
+      text: "PostgreSQL",
+      icon: "simple-icons:postgresql",
+      href: "https://www.postgresql.org"
     }
   ],
   tools: [
-    { 
-      text: "Nginx", 
-      icon: "nginx", 
-      href: "https://nginx.org" 
+    {
+      text: "Nginx",
+      icon: "simple-icons:nginx",
+      href: "https://nginx.org"
     },
-    { 
-      text: "Redis", 
-      icon: "redis", 
-      href: "https://redis.io" 
+    {
+      text: "Redis",
+      icon: "simple-icons:redis",
+      href: "https://redis.io"
     },
-    { 
-      text: "Docker", 
-      icon: "docker", 
-      href: "https://www.docker.com" 
+    {
+      text: "Docker",
+      icon: "simple-icons:docker",
+      href: "https://www.docker.com"
     },
-    { 
-      text: "Git", 
-      icon: "git", 
-      href: "https://git-scm.com" 
+    {
+      text: "Git",
+      icon: "simple-icons:git",
+      href: "https://git-scm.com"
     },
-    { 
-      text: "VSCode", 
-      icon: "vscode", 
-      href: "https://code.visualstudio.com" 
+    {
+      text: "VSCode",
+      icon: "simple-icons:visualstudiocode",
+      href: "https://code.visualstudio.com"
     },
-    { 
-      text: "Postman", 
-      icon: "postman", 
-      href: "https://www.postman.com" 
+    {
+      text: "Postman",
+      icon: "simple-icons:postman",
+      href: "https://www.postman.com"
     }
   ],
   os: [
-    { 
-      text: "Linux", 
-      icon: "linux", 
-      href: "https://www.linux.org" 
+    {
+      text: "Linux",
+      icon: "simple-icons:linux",
+      href: "https://www.linux.org"
     },
-    { 
-      text: "Windows", 
-      icon: "windows", 
-      href: "https://www.microsoft.com/en-us/windows" 
+    {
+      text: "Windows",
+      icon: "simple-icons:windows",
+      href: "https://www.microsoft.com/en-us/windows"
     }
   ]
 }
