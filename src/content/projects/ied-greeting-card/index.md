@@ -7,7 +7,8 @@ tags:
 - NextJS
 - Typescript
 - Tailwind
-repoUrl: http://github.com/void-panda/ied-greeting-card
+repoUrl: https://github.com/void-panda/ied-greeting-card
+image: "./ied.jpg"
 demoUrl: https://ied-greeting-card.vercel.app
 ---
 ![Ied Greeting Card](./ied.jpg)

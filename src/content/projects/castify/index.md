@@ -8,7 +8,8 @@ tags:
 - Laravel
 - Bootstrap
 - JQuery
-repoUrl: http://github.com/void-panda/castify
+repoUrl: https://github.com/void-panda/castify
+image: "./castify.png"
 ---
 
 ![Castify](./castify.png)

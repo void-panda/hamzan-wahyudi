@@ -8,7 +8,8 @@ tags:
 - Codeigniter 3
 - Bootstrap
 - JQuery
-repoUrl: https://github.com/void-panda/si-spp
+repoUrl: https://github.com/void-panda/si-spp-smkn-1-lopok
+image: "./spp-app.jpg"
 ---
 
 ![SI-SPP SMKN 1 LOPOK](./spp-app.jpg)

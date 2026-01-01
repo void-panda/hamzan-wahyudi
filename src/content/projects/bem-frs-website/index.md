@@ -8,6 +8,7 @@ tags:
 - Laravel
 - Tailwind
 repoUrl: https://github.com/void-panda/bem-frs
+image: "./bem.png"
 ---
 ![BEM FRS](./bem.png)
 

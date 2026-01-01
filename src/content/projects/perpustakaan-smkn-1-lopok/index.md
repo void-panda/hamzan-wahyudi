@@ -9,6 +9,7 @@ tags:
 - Bootstrap
 - JQuery
 repoUrl: https://github.com/void-panda/rpl-perpustakaan
+image: "./perpus.png"
 ---
 ![SI-SPP SMKN 1 LOPOK](./perpus.png)
 
