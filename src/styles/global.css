@@ -25,11 +25,10 @@
 }
 
 html {
-  overflow-y: scroll;
+  overflow-y: auto;
   color-scheme: light;
   background-color: white;
   font-family: "Atkinson", sans-serif;
-
 }
 
 html.dark {
@@ -39,8 +38,7 @@ html.dark {
 
 html,
 body {
-  @apply h-full w-full antialiased;
-  @apply bg-white dark:bg-black;
+  @apply antialiased;
   @apply text-black/75 dark:text-white/75;
 }
 
@@ -49,7 +47,7 @@ body {
 }
 
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-col flex-1;
 }
 
 header {

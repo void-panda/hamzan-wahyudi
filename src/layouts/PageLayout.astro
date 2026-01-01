@@ -1,11 +1,13 @@
 ---
-import "@styles/global.css"
-import BaseHead from "@components/BaseHead.astro"
-import Header from "@components/Header.astro"
-import Footer from "@components/Footer.astro"
-import Drawer from "@components/Drawer.astro"
-const { title, description } = Astro.props
-import { SITE } from "@consts"
+import "@styles/global.css";
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Drawer from "@components/Drawer.astro";
+const { title, description } = Astro.props;
+import { SITE } from "@consts";
+import TwinklingStars from "@components/TwinklingStars.astro";
+import MeteorShower from "@components/MeteorShower.astro";
 ---
 
 <!doctype html>
@@ -13,12 +15,65 @@ import { SITE } from "@consts"
   <head>
     <BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
   </head>
-  <body>
+  <body class="overflow-x-hidden !bg-transparent">
+    <!-- Light Mode: Particles -->
+    <div class="absolute inset-0 block dark:hidden -z-20">
+      <div id="particles1" class="fixed inset-0"></div>
+      <div id="particles2" class="fixed inset-0"></div>
+      <div id="particles3" class="fixed inset-0"></div>
+    </div>
+
+    <!-- Dark Theme: Stars -->
+    <div class="absolute inset-0 bg-black hidden dark:block -z-20">
+      <div id="stars1" class="fixed inset-0"></div>
+      <div id="stars2" class="fixed inset-0"></div>
+      <div id="stars3" class="fixed inset-0"></div>
+    </div>
+
+    <!-- Dark Theme: Twinkling Stars / Metors -->
+    <div id="galaxy" class="fixed inset-0 -z-20">
+      <div class="hidden dark:block">
+        <TwinklingStars />
+        <MeteorShower />
+      </div>
+    </div>
+
+    <script is:inline src="/js/bg.js"></script>
+
+    <div
+      id="glow-container"
+      class="fixed inset-0 -z-[100] pointer-events-none overflow-hidden"
+    >
+      <div
+        id="glow"
+        class="absolute w-[800px] h-[800px] rounded-full bg-blue-500/15 dark:bg-blue-600/20 blur-[120px] transition-opacity duration-300 opacity-0 will-change-transform"
+        style="transform: translate(-100%, -100%);"
+      >
+      </div>
+    </div>
+
     <Header />
     <Drawer />
-    <main>
+    <main class="bg-transparent">
       <slot />
     </main>
     <Footer />
+
+    <script is:inline>
+      function updateGlow(e) {
+        const glow = document.getElementById("glow");
+        if (glow) {
+          glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+          glow.style.opacity = "1";
+        }
+      }
+
+      window.addEventListener("mousemove", updateGlow);
+
+      document.addEventListener("mouseleave", () => {
+        const glow = document.getElementById("glow");
+        if (glow) glow.style.opacity = "0";
+      });
+    </script>
   </body>
 </html>
