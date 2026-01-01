@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+
+const educationCollection = await getCollection("education");
+const educations = educationCollection.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+---
+
+<section class="animate space-y-12">
+  <div class="text-center">
+    <h2 class="font-black text-2xl dark:text-white text-black mb-2">Educations</h2>
+    <p class="text-[10px] opacity-50 uppercase tracking-[0.2em] font-bold">Academic Journey</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 relative">
+    <!-- Vertical Line -->
+    <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-black/5 dark:bg-white/5 -translate-x-1/2"></div>
+
+    <div class="space-y-12">
+      {educations.map(async (edu, index) => {
+        const { Content } = await edu.render();
+        const isEven = index % 2 === 0;
+        
+        return (
+          <div class={`relative flex items-center justify-between w-full ${isEven ? 'md:flex-row-reverse' : ''}`}>
+            <!-- Spacer for desktop symmetry -->
+            <div class="hidden md:block w-5/12"></div>
+
+            <!-- Stepper Node -->
+            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 size-4 rounded-full border-2 border-black/10 dark:border-white/20 bg-white dark:bg-black z-10 flex items-center justify-center">
+                <div class="size-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+            </div>
+
+            <!-- Content Card -->
+            <div class={`w-[calc(100%-3rem)] md:w-5/12 ml-12 md:ml-0 bg-white/5 dark:bg-black/20 backdrop-blur-md border border-black/10 dark:border-white/5 p-6 rounded-2xl group hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-500`}>
+              <div class="text-[10px] font-bold uppercase tracking-widest opacity-30 text-black dark:text-white mb-2">
+                {edu.data.period}
+              </div>
+              
+              <h3 class="text-lg font-bold text-black dark:text-white mb-1 group-hover:text-blue-500 transition-colors">
+                {edu.data.institution}
+              </h3>
+              <p class="text-xs font-semibold opacity-75 mb-3 text-black dark:text-white">
+                {edu.data.major}
+              </p>
+              <div class="text-[11px] opacity-50 leading-relaxed text-black dark:text-white italic">
+                <Content />
+              </div>
+
+              <!-- Directional arrow for desktop -->
+              <div class={`hidden md:block absolute top-1/2 -translate-y-1/2 size-3 bg-white/5 dark:bg-black/20 border-t border-l border-black/10 dark:border-white/5 rotate-45 z-0 ${isEven ? '-left-1.5' : '-right-1.5'}`}></div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

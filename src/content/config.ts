@@ -44,4 +44,25 @@ const legal = defineCollection({
   }),
 })
 
-export const collections = { work, blog, projects, legal }
+const education = defineCollection({
+  type: "content",
+  schema: z.object({
+    institution: z.string(),
+    major: z.string(),
+    period: z.string(),
+    order: z.number().optional(),
+  }),
+})
+
+const awards = defineCollection({
+  type: "content",
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    issuer: z.string(),
+    date: z.string(),
+    image: image(),
+    order: z.number().optional(),
+  }),
+})
+
+export const collections = { work, blog, projects, legal, education, awards }

@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const awardsCollection = await getCollection("awards");
+const awards = awardsCollection.sort(
+    (a, b) => (a.data.order || 99) - (b.data.order || 99),
+);
+---
+
+<section class="animate space-y-8">
+    <div class="text-center">
+        <h2 class="font-black text-2xl dark:text-white text-black mb-2">
+            Awards & Certifications
+        </h2>
+        <p class="text-[10px] opacity-50 uppercase tracking-[0.2em] font-bold">
+            Recognition & Achievements
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+        {
+            awards.map(async (award) => {
+                const { Content } = await award.render();
+                return (
+                    <div class="stat-card flex flex-col bg-white/5 dark:bg-black/20 backdrop-blur-md border border-black/10 dark:border-white/5 p-4 rounded-lg group hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-500 overflow-hidden">
+                        <div class="relative aspect-video rounded-md overflow-hidden mb-4 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5">
+                            <Image
+                                src={award.data.image}
+                                alt={award.data.title}
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 pointer-events-none">
+                                <span class="text-[9px] font-bold text-white uppercase tracking-widest">
+                                    {award.data.date}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col flex-1">
+                            <h3 class="text-sm font-bold text-black dark:text-white mb-1 leading-snug group-hover:text-amber-500 transition-colors">
+                                {award.data.title}
+                            </h3>
+                            <p class="text-[10px] font-bold opacity-30 uppercase tracking-tighter text-black dark:text-white mb-3">
+                                {award.data.issuer}
+                            </p>
+                            <div class="text-[11px] opacity-50 leading-relaxed text-black dark:text-white mt-auto">
+                                <Content />
+                            </div>
+                        </div>
+                    </div>
+                );
+            })
+        }
+    </div>
+</section>
