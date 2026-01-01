@@ -1,65 +1,115 @@
 ---
-import { getCollection } from "astro:content"
-import PageLayout from "@layouts/PageLayout.astro"
-import ArrowCard from "@components/ArrowCard"
-import StackCard from "@components/StackCard.astro"
-import { SITE, SOCIALS, stack } from "@consts"
-import TwinklingStars from "@components/TwinklingStars.astro"
-import MeteorShower from "@components/MeteorShower.astro"
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import ArrowCard from "@components/ArrowCard";
+import StackCard from "@components/StackCard.astro";
+import { SITE, SOCIALS, stack } from "@consts";
+import GithubContribution from "@/components/GithubContribution.astro";
+import GithubStatsDetail from "@components/GithubStatsDetail.astro";
 
 const posts = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0,3)
+  .filter((post: { data: { draft: any } }) => !post.data.draft)
+  .sort(
+    (
+      a: { data: { date: { getTime: () => number } } },
+      b: { data: { date: { getTime: () => number } } },
+    ) => b.data.date.getTime() - a.data.date.getTime(),
+  )
+  .slice(0, 3);
 
 const projects = (await getCollection("projects"))
-  .filter(project => !project.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0,3)
+  .filter((project: { data: { draft: any } }) => !project.data.draft)
+  .sort(
+    (
+      a: { data: { date: { getTime: () => number } } },
+      b: { data: { date: { getTime: () => number } } },
+    ) => b.data.date.getTime() - a.data.date.getTime(),
+  )
+  .slice(0, 3);
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
-  
   <!-- HERO -->
   <section class="relative h-screen w-full">
-    <div id="planetcont" class='animate absolute inset-0 top-1/4 overflow-hidden'>
-      <div id="crescent" class='absolute top-0 left-1/2 -translate-x-1/2 w-[250vw] min-h-[100vh] aspect-square rounded-full p-[1px] bg-gradient-to-b from-black/25 dark:from-white/75 from-0% to-transparent to-5%'>
-        <div id="planet" class='w-full h-full bg-white dark:bg-black rounded-full p-[1px] overflow-hidden flex justify-center'>
-          <div id="blur" class='w-full h-20 rounded-full bg-neutral-900/25 dark:bg-white/25 blur-3xl'/>
+    <div
+      id="planetcont"
+      class="animate absolute inset-0 top-1/4 overflow-hidden"
+    >
+      <div
+        id="crescent"
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[250vw] min-h-[100vh] aspect-square rounded-full p-[1px] bg-gradient-to-b from-black/25 dark:from-white/75 from-0% to-transparent to-5%"
+      >
+        <div
+          id="planet"
+          class="w-full h-full bg-white dark:bg-black rounded-full p-[1px] overflow-hidden flex justify-center"
+        >
+          <div
+            id="blur"
+            class="w-full h-20 rounded-full bg-neutral-900/25 dark:bg-white/25 blur-3xl"
+          >
+          </div>
         </div>
       </div>
     </div>
-    <div class="animate absolute h-full w-full flex items-center justify-center">
-      <div class='relative w-full h-full flex items-center justify-center'>
-        <div class='p-5 text-center'>
-          <div class="aspect-square w-40 my-3 mx-auto rounded-full">
-            <img src="./profile.png" class="w-full h-full object-cover rounded-full" alt="Avatar" />
+    <div
+      class="animate absolute h-full w-full flex items-center justify-center"
+    >
+      <div class="relative w-full h-full flex items-center justify-center">
+        <div class="p-5 text-center">
+          <div
+            class="aspect-square w-40 my-3 mx-auto rounded-full overflow-hidden"
+          >
+            <img
+              src="./profile.png"
+              class="w-full h-full object-cover"
+              alt="Avatar"
+            />
           </div>
-          <p class='animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75'>
-            Hello, I am 
+          <p
+            class="animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75"
+          >
+            Hello, I am
           </p>
-          <h1 class='animated text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white'>
+          <h1
+            class="animated text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white"
+          >
             Hamzan Wahyudi
           </h1>
-          <p class='animated text-sm md:text-base lg:text-lg opacity-75'>
+          <p class="animated text-sm md:text-base lg:text-lg opacity-75">
             A Software Engineer from Indonesia.
           </p>
-          <div id="ctaButtons" class='animated flex flex-wrap gap-4 justify-center mt-5'>
-            <a href='/work' class='py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend'>
+          <div
+            id="ctaButtons"
+            class="animated flex flex-wrap gap-4 justify-center mt-5"
+          >
+            <a
+              href="/work"
+              class="py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend"
+            >
               View my work
             </a>
-            <a href='/blog' class='py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
+            <a
+              href="/blog"
+              class="py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend"
+            >
               Read my blog
             </a>
           </div>
-          <div class='animated flex flex-wrap gap-2 justify-center mt-5'>
-            {SOCIALS.map(social => (
-              <a href={social.HREF} target="_blank" aria-label={`${SITE.TITLE} on ${social.NAME}`} class='group size-10 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out'>
-                <svg class='size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend'>
-                  <use href={`/social.svg#${social.ICON}`} />
-                </svg>
-              </a>
-            ))}
+          <div class="animated flex flex-wrap gap-2 justify-center mt-5">
+            {
+              SOCIALS.map((social) => (
+                <a
+                  href={social.HREF}
+                  target="_blank"
+                  aria-label={`${SITE.TITLE} on ${social.NAME}`}
+                  class="group size-10 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out"
+                >
+                  <svg class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend">
+                    <use href={`/social.svg#${social.ICON}`} />
+                  </svg>
+                </a>
+              ))
+            }
           </div>
         </div>
       </div>
@@ -68,68 +118,118 @@ const projects = (await getCollection("projects"))
 
   <div class="relative">
     <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
-
       <!-- About Section -->
       <section class="animate">
         <article>
           <h2 class="text-center">About Me</h2>
-          <p>I am a <b><i>Software Engineer</i></b>, <b><i>UI/UX Designer</i></b>, <b><i>Product Planner</i></b> and <b><i>a Student</i></b> at <b><i>Sumbawa University of Technology</i></b>.</p>
-          <p>I love to both build and break things. I am motivated by challenging projects with self-guided research and dynamic problem solving. My true passion is crafting creative front end designs with unique takes on color, typography and motion.</p>
+          <p>
+            I am a <b><i>Software Engineer</i></b>, <b><i>UI/UX Designer</i></b
+            >, <b><i>Product Planner</i></b> and <b><i>a Student</i></b> at <b
+              ><i>Sumbawa University of Technology</i></b
+            >.
+          </p>
+          <p>
+            I love to both build and break things. I am motivated by challenging
+            projects with self-guided research and dynamic problem solving. My
+            true passion is crafting creative front end designs with unique
+            takes on color, typography and motion.
+          </p>
           <p>During my career</p>
-          <p>I have built products ranging from marketing and ecommerce websites to complex enterprise apps, focusing on delivering fast, elegant code by building frontend, integrating APIs and developing fullstack applications.</p>
+          <p>
+            I have built products ranging from marketing and ecommerce websites
+            to complex enterprise apps, focusing on delivering fast, elegant
+            code by building frontend, integrating APIs and developing fullstack
+            applications.
+          </p>
           <p>Now</p>
-          <p>I'm currently a student of Informatics at Sumbawa University of Technology, where I'm learning to become a better software engineer.</p>
-          <a href="#" class="bg-black dark:bg-white text-white no-underline mx-auto block w-max dark:text-black px-3 py-2 rounded text-sm text-center">See my CV</a>
+          <p>
+            I'm currently a student of Informatics at Sumbawa University of
+            Technology, where I'm learning to become a better software engineer.
+          </p>
+          <a
+            href="#"
+            class="bg-black dark:bg-white text-white no-underline mx-auto block w-max dark:text-black px-3 py-2 rounded text-sm text-center"
+            >See my CV</a
+          >
         </article>
+      </section>
+
+      <!-- GitHub Information Stuffs (Relocated) -->
+      <section class="animate space-y-12">
+        <div class="text-center">
+          <h2 class="font-black text-2xl dark:text-white text-black mb-2">
+            GitHub Activity
+          </h2>
+          <p class="text-xs opacity-50 uppercase tracking-widest font-bold">
+            Open Source Contribution & Stats
+          </p>
+        </div>
+
+        <div class="space-y-8 overflow-hidden">
+          <GithubContribution username="void-panda" />
+
+          <div class="space-y-6">
+            <GithubStatsDetail username="void-panda" />
+          </div>
+        </div>
       </section>
 
       <!-- Tech Stack Section -->
       <section class="animate">
         <div class="space-y-5">
-          <h2 class="font-black text-2xl dark:text-white text-black text-center">
+          <h2
+            class="font-black text-2xl dark:text-white text-black text-center"
+          >
             My Skills
           </h2>
           <div class="space-y-3" id="expert">
             <h4 class="font-bold">Expert</h4>
             <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.expert.map(item => (
-                <StackCard 
-                  text={item.text}
-                  icon={item.icon}
-                  href={item.href}
-                />
-              ))}
+              {
+                stack.expert.map((item) => (
+                  <StackCard
+                    text={item.text}
+                    icon={item.icon}
+                    href={item.href}
+                  />
+                ))
+              }
             </div>
           </div>
 
           <div class="space-y-3" id="intermediate">
             <h4 class="font-bold">Intermediate</h4>
             <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.intermediate.map(item => (
-                <StackCard 
-                  text={item.text}
-                  icon={item.icon}
-                  href={item.href}
-                />
-              ))}
+              {
+                stack.intermediate.map((item) => (
+                  <StackCard
+                    text={item.text}
+                    icon={item.icon}
+                    href={item.href}
+                  />
+                ))
+              }
             </div>
           </div>
 
           <div class="space-y-3" id="beginner">
             <h4 class="font-bold">Beginner</h4>
             <div class="flex flex-wrap items-center gap-2 mt-5">
-              {stack.beginner.map(item => (
-                <StackCard 
-                  text={item.text}
-                  icon={item.icon}
-                  href={item.href}
-                />
-              ))}
+              {
+                stack.beginner.map((item) => (
+                  <StackCard
+                    text={item.text}
+                    icon={item.icon}
+                    href={item.href}
+                  />
+                ))
+              }
             </div>
           </div>
 
           <div>
-            I am always eager to learn new things, especially about new tech stacks.
+            I am always eager to learn new things, especially about new tech
+            stacks.
           </div>
         </div>
       </section>
@@ -141,18 +241,25 @@ const projects = (await getCollection("projects"))
             <h3 class="font-black text-black dark:text-white text-2xl">
               Recent projects
             </h3>
-            <a href="/projects" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+            <a
+              href="/projects"
+              class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend"
+            >
+              <span
+                class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend"
+              >
                 All projects
               </span>
             </a>
           </div>
           <ul class="space-y-4">
-            {projects.map((project) => (
-              <li>
-                <ArrowCard entry={project} />
-              </li>
-            ))}
+            {
+              projects.map((project: unknown) => (
+                <li>
+                  <ArrowCard entry={project} />
+                </li>
+              ))
+            }
           </ul>
         </div>
       </section>
@@ -164,18 +271,25 @@ const projects = (await getCollection("projects"))
             <h3 class="font-black text-black dark:text-white text-2xl">
               Recent posts
             </h3>
-            <a href="/blog" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+            <a
+              href="/blog"
+              class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend"
+            >
+              <span
+                class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend"
+              >
                 All posts
               </span>
             </a>
           </div>
           <ul class="space-y-4">
-            {posts.map((post) => (
-              <li>
-                <ArrowCard entry={post} />
-              </li>
-            ))}
+            {
+              posts.map((post: unknown) => (
+                <li>
+                  <ArrowCard entry={post} />
+                </li>
+              ))
+            }
           </ul>
         </div>
       </section>
@@ -183,28 +297,31 @@ const projects = (await getCollection("projects"))
       <!-- Contact Section -->
       <section class="animate">
         <div>
-          <p class="font-semibold text-black dark:text-white">
-            Let's Connect
-          </p>
-          <p>
-            Reach out to me via email or on social media.
-          </p>
+          <p class="font-semibold text-black dark:text-white">Let's Connect</p>
+          <p>Reach out to me via email or on social media.</p>
           <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
-
-            {SOCIALS.map(social => (
-              <div class="col-span-1 flex items-center gap-1">
-                <span class="whitespace-nowrap truncate">
-                  {social.NAME}
-                </span>
-              </div>
-              <div class="col-span-3 truncate">
-                <a href={social.HREF} target="_blank" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-                  <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                    {social.TEXT}
-                  </span>
-                </a>
-              </div>
-            ))}
+            {
+              SOCIALS.map((social) => (
+                <>
+                  <div class="col-span-1 flex items-center gap-1">
+                    <span class="whitespace-nowrap truncate text-black dark:text-white">
+                      {social.NAME}
+                    </span>
+                  </div>
+                  <div class="col-span-3 truncate">
+                    <a
+                      href={social.HREF}
+                      target="_blank"
+                      class="w-fit group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend"
+                    >
+                      <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+                        {social.TEXT}
+                      </span>
+                    </a>
+                  </div>
+                </>
+              ))
+            }
           </div>
 
           <div class="mt-10">
@@ -213,37 +330,47 @@ const projects = (await getCollection("projects"))
             </p>
             <form id="contactForm" class="space-y-4">
               <div class="flex flex-col gap-2">
-                <label for="name" class="text-sm text-black/75 dark:text-white/75">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  required 
+                <label
+                  for="name"
+                  class="text-sm text-black/75 dark:text-white/75">Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
                   class="w-full p-2 rounded border border-black/25 dark:border-white/25 bg-transparent placeholder-black/50 dark:placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white text-black dark:text-white"
                 />
               </div>
               <div class="flex flex-col gap-2">
-                <label for="email" class="text-sm text-black/75 dark:text-white/75">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  required 
+                <label
+                  for="email"
+                  class="text-sm text-black/75 dark:text-white/75">Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
                   class="w-full p-2 rounded border border-black/25 dark:border-white/25 bg-transparent placeholder-black/50 dark:placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white text-black dark:text-white"
                 />
               </div>
               <div class="flex flex-col gap-2">
-                <label for="message" class="text-sm text-black/75 dark:text-white/75">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  rows="4" 
-                  required 
+                <label
+                  for="message"
+                  class="text-sm text-black/75 dark:text-white/75"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
                   class="w-full p-2 rounded border border-black/25 dark:border-white/25 bg-transparent placeholder-black/50 dark:placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white text-black dark:text-white"
                 ></textarea>
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 class="py-2 px-4 rounded bg-black dark:bg-white text-white dark:text-black hover:opacity-80 transition-opacity"
               >
                 Send Message
@@ -252,16 +379,19 @@ const projects = (await getCollection("projects"))
           </div>
 
           <script is:inline>
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-              e.preventDefault();
-              const name = document.getElementById('name').value;
-              const email = document.getElementById('email').value;
-              const message = document.getElementById('message').value;
-              const subject = `Contact from ${name}`;
-              const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-              window.location.href = `mailto:hamzankechil@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            });
+            document
+              .getElementById("contactForm")
+              ?.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const message = document.getElementById("message").value;
+                const subject = `Contact from ${name}`;
+                const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+                window.location.href = `mailto:hamzankechil@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              });
           </script>
+        </div>
       </section>
     </div>
   </div>

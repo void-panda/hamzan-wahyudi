@@ -1,0 +1,236 @@
+---
+interface Props {
+    username: string;
+}
+
+const { username } = Astro.props;
+---
+
+<section
+    class="github-contribution-scroll animate w-full mt-12 flex justify-center"
+>
+    <div
+        class="calendar-container w-full max-w-5xl bg-gradient-to-br from-white/10 to-white/5 dark:from-white/5 dark:to-transparent backdrop-blur-md border border-black/10 dark:border-white/10 p-8 rounded-lg relative overflow-hidden"
+    >
+        <!-- Subtle Background Glow -->
+        <div
+            class="absolute -top-24 -right-24 size-64 bg-black/5 dark:bg-white/5 blur-3xl rounded-full pointer-events-none"
+        >
+        </div>
+
+        <div class="flex justify-between items-end mb-8 relative z-10">
+            <div>
+                <h2
+                    class="text-xs font-bold uppercase tracking-[0.2em] opacity-50 mb-1 text-black dark:text-white"
+                >
+                    Github Activity
+                </h2>
+                <div class="flex items-center gap-2">
+                    <svg class="size-5 fill-current text-black dark:text-white">
+                        <use href="/social.svg#github"></use>
+                    </svg>
+                    <span
+                        id="contribution-count"
+                        class="text-xl font-bold text-black dark:text-white"
+                    >
+                        ...
+                    </span>
+                </div>
+            </div>
+            <div class="text-right">
+                <a
+                    href={`https://github.com/${username}`}
+                    target="_blank"
+                    class="text-xs font-medium opacity-50 hover:opacity-100 transition-opacity text-black dark:text-white border-b border-black/20 dark:border-white/20 pb-0.5"
+                >
+                    github.com/{username}
+                </a>
+            </div>
+        </div>
+
+        <div class="relative w-full z-10">
+            <div id="github-graph" class="w-full">
+                <!-- Library will mount here -->
+            </div>
+
+            <div
+                id="graph-loading"
+                class="absolute inset-0 flex items-center justify-center bg-transparent pointer-events-none transition-opacity duration-300"
+            >
+                <div
+                    class="size-8 border-2 border-black/10 dark:border-white/10 border-t-black/50 dark:border-t-white/50 rounded-full animate-spin text-black dark:text-white"
+                >
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="flex justify-between items-center mt-8 pt-6 border-t border-black/5 dark:border-white/5 relative z-10"
+        >
+            <div class="flex items-center gap-4">
+                <div class="flex -space-x-2">
+                    <!-- Decorative Avatar or just placeholder -->
+                    <div
+                        class="size-6 rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-200 dark:bg-neutral-800 overflow-hidden"
+                    >
+                        <img
+                            src="/profile.png"
+                            alt=""
+                            class="size-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all"
+                        />
+                    </div>
+                </div>
+                <span
+                    class="text-[10px] uppercase tracking-widest font-bold opacity-30 text-black dark:text-white"
+                    >Last 365 Days</span
+                >
+            </div>
+
+            <div class="flex items-center gap-3">
+                <span
+                    class="text-[10px] font-bold opacity-30 uppercase tracking-tighter text-black dark:text-white"
+                    >Less</span
+                >
+                <div class="flex gap-1.5">
+                    <div
+                        class="size-3 rounded-sm bg-[#ebedf0] dark:bg-[#161b22] border border-black/5 dark:border-white/5"
+                    >
+                    </div>
+                    <div
+                        class="size-3 rounded-sm bg-[#9be9a8] dark:bg-[#0e4429] border border-black/5 dark:border-white/5"
+                    >
+                    </div>
+                    <div
+                        class="size-3 rounded-sm bg-[#40c463] dark:bg-[#006d32] border border-black/5 dark:border-white/5"
+                    >
+                    </div>
+                    <div
+                        class="size-3 rounded-sm bg-[#30a14e] dark:bg-[#26a641] border border-black/5 dark:border-white/5"
+                    >
+                    </div>
+                    <div
+                        class="size-3 rounded-sm bg-[#216e39] dark:bg-[#39d353] border border-black/5 dark:border-white/5"
+                    >
+                    </div>
+                </div>
+                <span
+                    class="text-[10px] font-bold opacity-30 uppercase tracking-tighter text-black dark:text-white"
+                    >More</span
+                >
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import drawContributionGraph from "github-contribution-graph";
+
+    async function initGraph() {
+        const graphContainer = document.getElementById("github-graph");
+        const countElement = document.getElementById("contribution-count");
+        const loadingElement = document.getElementById("graph-loading");
+
+        if (!graphContainer) return;
+
+        try {
+            const username = "void-panda";
+            const response = await fetch(
+                `https://github-contributions-api.deno.dev/${username}.json`,
+            );
+            if (!response.ok) throw new Error("Fetch failed");
+
+            const data = await response.json();
+
+            const total = data.totalContributions;
+            if (countElement) {
+                countElement.innerText = `${total} Contributions`;
+            }
+
+            const formattedData: Record<string, any[]> = {};
+            const currentYear = new Date().getFullYear().toString();
+            formattedData[currentYear] = [];
+
+            data.contributions.forEach((week: any[]) => {
+                week.forEach((day: any) => {
+                    formattedData[currentYear].push({
+                        date: day.date,
+                        done: day.contributionCount,
+                        not_done: 0,
+                    });
+                });
+            });
+
+            graphContainer.innerHTML = "";
+
+            const isDark = document.documentElement.classList.contains("dark");
+
+            drawContributionGraph({
+                data: formattedData,
+                ssr: false,
+                config: {
+                    graphMountElement: "#github-graph",
+                    graphWidth: graphContainer.clientWidth,
+                    graphHeight: 110,
+                    graphTheme: "standard",
+                },
+            });
+
+            if (loadingElement) loadingElement.style.opacity = "0";
+
+            const svg = graphContainer.querySelector("svg");
+            if (svg) {
+                svg.classList.add("w-full", "h-auto", "bg-transparent");
+            }
+        } catch (error) {
+            console.error("Failed to render GitHub graph:", error);
+            if (graphContainer) {
+                graphContainer.innerHTML =
+                    '<p class="text-xs opacity-50 text-center py-4">Failed to load activity graph.</p>';
+            }
+            if (loadingElement) loadingElement.style.opacity = "0";
+        }
+    }
+
+    initGraph();
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === "class") {
+                initGraph();
+            }
+        });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+</script>
+
+<style is:global>
+    .github-contribution-scroll {
+        /* Mask removed per user request for container-width fit */
+    }
+
+    #github-graph text {
+        font-size: 9px !important;
+        font-weight: 600 !important;
+        fill: currentColor !important;
+        opacity: 0.25;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .dark #github-graph text {
+        fill: #fff !important;
+    }
+
+    .calendar-container {
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .github-contribution-scroll:hover .calendar-container {
+        /* Scale effect removed per user request */
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .dark .github-contribution-scroll:hover .calendar-container {
+        border-color: rgba(255, 255, 255, 0.15);
+    }
+</style>
