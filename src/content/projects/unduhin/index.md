@@ -10,7 +10,7 @@ tags:
 - Framer Motion
 - Neobrutalism
 repoUrl: https://github.com/void-panda/unduhin
-demoUrl: https://unduhiiin.netlify.app
+demoUrl: https://unduhin.vercel.app
 image: "./unduhin.png"
 ---
 
