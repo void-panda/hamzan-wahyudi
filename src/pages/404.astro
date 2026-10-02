@@ -1,0 +1,28 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+---
+
+<PageLayout title="404 Not Found" description="Page not found">
+  <div class="relative min-h-[70vh] flex items-center justify-center">
+    <Container size="md">
+      <div class="border-2 border-border bg-card p-8 md:p-12 rounded-md shadow-neo text-center max-w-lg mx-auto">
+        <div class="inline-block text-xs font-mono font-bold uppercase mb-3 border-2 border-border bg-destructive text-destructive-foreground px-3 py-1 rounded-sm shadow-neo-sm">
+          Error 404
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-2">
+          Page Not Found
+        </h1>
+        <p class="text-sm text-muted-foreground mb-6">
+          The page you are looking for does not exist or has been moved.
+        </p>
+        <a
+          href="/"
+          class="inline-block py-2.5 px-6 rounded-md font-bold text-sm border-2 border-border bg-primary text-primary-foreground shadow-neo hover:shadow-neo-lg hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-neo-sm transition-all no-underline"
+        >
+          Back to Home
+        </a>
+      </div>
+    </Container>
+  </div>
+</PageLayout>
